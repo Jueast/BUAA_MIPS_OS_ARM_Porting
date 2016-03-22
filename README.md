@@ -1,1 +1,1 @@
-For RPI2B only£¡
+For RPI2B only.
