@@ -5,7 +5,7 @@ INCLUDES := -I../include
 
 .PHONY: clean
 
-all: cstartup.o main.o
+all: cstartup.o main.o init.o
 
 clean:
 	rm -rf *.o *~

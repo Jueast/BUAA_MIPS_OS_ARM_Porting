@@ -25,8 +25,7 @@ void kernel_main( unsigned int r0, unsigned int r1, unsigned int atags)
 	/* Initialise the UART */
     	RPI_AuxMiniUartInit( 115200, 8 );
 	printf("main.c:\tmain is start ...\n");
-	printf("main is over!\n");
-	
+	arm_init();	
 	while(1) {
 	   /* trap here */
 	}
