@@ -28,7 +28,10 @@ static void myoutput(void *arg, char *s, int l)
     
     for (i=0; i< l; i++) {
 	printcharc(s[i]);
-	if (s[i] == '\n') printcharc('\n');
+	if (s[i] == '\n'){
+	    printcharc('\r'); // fit for putty on Win32	
+	    printcharc('\n');
+	}
     }
 }
 
