@@ -83,7 +83,7 @@ _reset_:
 //    Information here: http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dai0098a/index.html
 
 
-    // Enable VFP --------------Banned Now------------------------------------
+    // Enable VFP 
 
     // r1 = Access Control Register
     MRC p15, #0, r1, c1, c0, #2
