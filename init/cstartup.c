@@ -1,4 +1,3 @@
-#include <rpi-gpio.h>
 
 extern int __bss_start__;
 extern int __bss_end__;
@@ -8,8 +7,6 @@ extern void kernel_main( unsigned int r0, unsigned int r1, unsigned int atags );
 void _cstartup( unsigned int r0, unsigned int r1, unsigned int r2 )
 {
     // enable LED pin as an output
-    RPI_GetGpio()->LED_GPFSEL |= LED_GPFBIT;
-
     int* bss = &__bss_start__;
     int* bss_end = &__bss_end__;
 

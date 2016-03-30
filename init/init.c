@@ -1,4 +1,5 @@
 #include <printf.h>
+#include <types.h>
 
 void arm_init(){
 	printf("init.c:\tarm_init() is called\n");

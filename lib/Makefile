@@ -7,8 +7,8 @@ INCLUDES := -I./ -I../ -I../include/
 
 .PHONY: clean
 
-all: print.o printf.o rpi-armtimer.o rpi-aux.o rpi-gpio.o rpi-interrupts.o\
-      rpi-systimer.o
+all: print.o printf.o 
+      
 clean:
 	rm -rf *.o *~
 

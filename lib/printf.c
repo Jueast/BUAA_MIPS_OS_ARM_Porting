@@ -11,7 +11,7 @@
 
 #include <printf.h>
 #include <print.h>
-#include <rpi-aux.h>
+#include <drivers/raspberrypi2/rpi-aux.h>
 
 
 

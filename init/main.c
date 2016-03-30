@@ -1,10 +1,10 @@
 #include <printf.h>
 
-#include <rpi-aux.h>
-#include <rpi-armtimer.h>
-#include <rpi-gpio.h>
-#include <rpi-interrupts.h>
-#include <rpi-systimer.h>
+#include <drivers/raspberrypi2/rpi-aux.h>
+#include <drivers/raspberrypi2/rpi-armtimer.h>
+#include <drivers/raspberrypi2/rpi-gpio.h>
+#include <drivers/raspberrypi2/rpi-interrupts.h>
+#include <drivers/raspberrypi2/rpi-systimer.h>
 
 void kernel_main( unsigned int r0, unsigned int r1, unsigned int atags)
 {
@@ -25,8 +25,7 @@ void kernel_main( unsigned int r0, unsigned int r1, unsigned int atags)
 	/* Initialise the UART */
     	RPI_AuxMiniUartInit( 115200, 8 );
 	printf("main.c:\tmain is start ...\n");
-	printf("main is over!\n");
-	
+	arm_init();	
 	while(1) {
 	   /* trap here */
 	}
