@@ -58,7 +58,7 @@ va2pa(Pde *pgdir, u_long va)
 	if (!(*pgdir&PTE_V))
 		return ~0;
 	p = (Pte*)KADDR(PTE_ADDR(*pgdir));
-	if (!(p[PTX(va)]&PTE_V))
+	if (!(p[PTX(va)]&PTE_SP))
 		return ~0;
 	return PTE_ADDR(p[PTX(va)]);
 }
