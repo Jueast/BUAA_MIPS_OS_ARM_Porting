@@ -55,17 +55,17 @@ va2pa(Pde *pgdir, u_long va)
 	Pte *p;
 
 	pgdir = &pgdir[PDX(va)];
-	if (!(*pgdir&PTE_V))
-		return ~0;
-	p = (Pte*)KADDR(PTE_ADDR(*pgdir));
-	if (!(p[PTX(va)]&PTE_SP))
-		return ~0;
+	if (!(*pgdir&PDE_PT))
+		return ~0; // magic number to debug
+	p = (Pte*)KADDR(PDE_ADDR(*pgdir));
+	if ((p[PTX(va)]&PTE_SP) != PTE_SP)
+		return ~0; 
 	return PTE_ADDR(p[PTX(va)]);
 }
 
-void mips_detect_memory();
+void arm_detect_memory();
 
-void mips_vm_init();
+void arm_vm_init();
 
 void mips_init();
 void page_init(void);

@@ -14,7 +14,7 @@
  * Part 1.  ARM definitions.
  */
 #define BY2PG		4096		// bytes to a page
-#define PDMAP		(4*1024*1024)	// bytes mapped by a page directory entry
+#define PDMAP		(1*1024*1024)	// bytes mapped by a page directory entry
 #define PGSHIFT		12
 #define PDSHIFT		20		// log2(PDMAP)
 #define PDX(va)		((((u_long)(va))>>20) & 0x0FFF)
@@ -36,8 +36,8 @@
  *   PDE_* means the first-level descriptor
  *   PTE_* means the second-level descriptor
  */
-#define PDE_DS          0x01  // Page Table
-#define PTE_SP		0x02  // Small Page
+#define PDE_PT          0x01  // Page Table
+#define PTE_SP		0x03  // Small Page
 #define INVALID		0x00  // INVALID for both PTE and PDE
 
 /*

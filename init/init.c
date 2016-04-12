@@ -1,9 +1,12 @@
 #include <printf.h>
 #include <types.h>
-
+#include <pmap.h>
 void arm_init(){
 	printf("init.c:\tarm_init() is called\n");
-	
+   	arm_detect_memory();
+	arm_vm_init();
+	page_init();
+	page_check();	
 	panic("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
 	while(1);
 	panic("init.c:\t end of arm_init() reached!");

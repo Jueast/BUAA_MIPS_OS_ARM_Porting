@@ -12,17 +12,19 @@ init_dir	:= init
 lib_dir		:= lib
 drivers_dir     := drivers
 tools_dir	:= tools
+mm_dir 		:= mm
 output_tool     := rpi-aux
 kernel_elf	:= RPI2/kernel.elf
 kernel_img 	:= RPI2/kernel.img
 
 link_script 	:= $(tools_dir)/rpi.x
 
-modules		:= boot init lib drivers
+modules		:= boot init lib drivers mm
 objects 	:= $(boot_dir)/start.o			\
 		   $(init_dir)/*.o			\
 		   $(lib_dir)/*.o			\
-		   $(drivers_dir)/raspberrypi2/*.o 			
+		   $(drivers_dir)/raspberrypi2/*.o 	\
+		   $(mm_dir)/*.o		
 
 .PHONY: all $(modules) clean
 
