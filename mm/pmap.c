@@ -374,12 +374,13 @@ page_init(void)
 	int i;
         struct Page * currentPage;
 	LIST_INIT (&page_free_list);
-	for(i=1;i<npage;i++){
+	freemem = ROUND(freemem, BY2PG);
+	for(i=freemem/BY2PG;i<npage;i++){
 	   currentPage =(struct Page *)((u_long)pages + (u_long)i *(u_long) sizeof(struct Page));
 	   LIST_INSERT_HEAD(&page_free_list, currentPage, pp_link);
 	}
 	
-	// TODO: complete 3) 4)
+	// TODO: mark used pages as used.
 
 
 
@@ -456,10 +457,9 @@ page_alloc(struct Page **pp)
 
 	        (*pp) = LIST_FIRST(&page_free_list);
 		LIST_REMOVE(*pp, pp_link);
+		page_initpp(*pp);
 		//(*pp)->pp_ref++;
-		
-
-
+		bzero(page2pa(*pp), BY2PG);		
 
 //page initialization
 			
